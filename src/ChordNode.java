@@ -83,8 +83,8 @@ public class ChordNode {
             isEmpty = false;
             List<FingerEntry> fingerEntries = new ArrayList<>();
             for (int i = 0; i < m; i++) {
-                int start = Calculator.calculateStartIndex(this.id, i, n);
-                int end = Calculator.calculateStartIndex(this.id, i + 1, n);
+                int start = Utils.calculateStartIndex(this.id, i, n);
+                int end = Utils.calculateStartIndex(this.id, i + 1, n);
                 fingerEntries.add(new FingerEntry(this.nodes.get(start), this.nodes.get(end), this));
             }
             this.setActive(true);
@@ -103,8 +103,8 @@ public class ChordNode {
 
     public void init_finger_table(ChordNode sampleNode) {
         List<FingerEntry> fingerEntries = new ArrayList<>();
-        int start = Calculator.calculateStartIndex(this.id, 0, n);
-        int end = Calculator.calculateStartIndex(this.id, 1, n);
+        int start = Utils.calculateStartIndex(this.id, 0, n);
+        int end = Utils.calculateStartIndex(this.id, 1, n);
         ChordNode nodeSuccessor = sampleNode.findSuccessor(start);
         fingerEntries.add(new FingerEntry(this.nodes.get(start), this.nodes.get(end), nodeSuccessor));
 
@@ -118,8 +118,8 @@ public class ChordNode {
         predecessor.successor = this;
 
         for (int i = 1; i < this.m; i++) {
-            start = Calculator.calculateStartIndex(this.id, i, this.n);
-            end = Calculator.calculateStartIndex(this.id, i + 1, this.n);
+            start = Utils.calculateStartIndex(this.id, i, this.n);
+            end = Utils.calculateStartIndex(this.id, i + 1, this.n);
             if (!findLeftHalfInterval(this.id, nodeSuccessor.id).contains(start)) {
                 nodeSuccessor = sampleNode.findSuccessor(start);
             }

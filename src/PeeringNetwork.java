@@ -9,7 +9,7 @@ public class PeeringNetwork {
     private final int n;
 
     public PeeringNetwork(int m) {
-        this.n = Calculator.calculateNodeCnt(m);
+        this.n = Utils.calculateNodeCnt(m);
         for (int i = 0; i < this.n; i++) {
             this.nodes.add(new ChordNode(i, m, this.n));
         }
